@@ -1,0 +1,22 @@
+[Unit]
+Description=Webserver: %i
+After=network.target
+
+[Service]
+WorkingDirectory=/opt/servers/website/%i
+
+User=webserver
+Group=webserver
+
+Restart=always
+RestartSec=5
+
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=webserver-%i
+
+ExecStart=/usr/bin/node /opt/servers/website/%i/webserver.js
+Enviroment=NODE_ENV=production PORT=8080
+
+[Install]
+WantedBy=multi-user.target
