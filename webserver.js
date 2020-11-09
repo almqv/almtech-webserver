@@ -23,7 +23,7 @@ server.get("*", function(req, res) {
 	res.sendFile(clientdir + "/404.html");
 });
 
-var http_webserver = http.createServer(app);
+var http_webserver = http.createServer(server);
 // TO DO: Add https
 
 
