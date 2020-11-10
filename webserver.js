@@ -19,13 +19,11 @@ server.get("/", function(req, res) { // root directory for the website
 	res.sendFile(clientdir + "/index.html"); // respond with the index.html file
 });
 
-server.get("*", function(req, res) {
-	res.sendFile(clientdir + "/404.html");
-});
+//server.get("*", function(req, res) {
+//	res.sendFile(clientdir + "/404.html");
+//});
 
 var http_webserver = http.createServer(server);
-// TO DO: Add https
-
 
 http_webserver.listen(port,() => {
 	console.log("Server running on port %d", port);
