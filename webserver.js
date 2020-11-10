@@ -15,7 +15,7 @@ server.get("/", function(req, res) { // root directory for the website
 	var debugstr = "[" + curdate.toISOString() + "] HTTP Get: " + req.connection.remoteAddress; // create a string for the debug
 
 	fs.appendFile("logs/connections.log", debugstr + "\n", function(err){ if(err) throw err; }); // append the logs
-	console.log(debugstr);
+	console.log("[DEBUG]: " + debugstr);
 	res.sendFile(clientdir + "/index.html"); // respond with the index.html file
 });
 
